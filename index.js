@@ -10,16 +10,16 @@ const questions = [
         message: 'What is the title of your project?',
         name: 'title'
     },
-    // {
-    //     type: 'input',
-    //     message: 'Please describe your project.',
-    //     name: 'description'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What was your motitvation?',
-    //     name: 'motivation'
-    // },
+    {
+        type: 'input',
+        message: 'Please describe your project.',
+        name: 'description'
+    },
+    {
+        type: 'input',
+        message: 'What was your motitvation?',
+        name: 'motivation'
+    },
     // {
     //     type: 'input',
     //     message: 'Why did you build this project?',
@@ -54,9 +54,11 @@ const questions = [
 ]
 
 
-const generator = ({ title, future }) => {
+const generator = ({ title, future, description, motivation }) => {
 return `${title}
 ${future}
+${description}
+${motivation}
 `
 }
 
