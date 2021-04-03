@@ -55,11 +55,11 @@ const questions = [
 
 
 const generator = ({ title, future, description, motivation }) => {
-return ```md${title}
-${future}
-${description}
-${motivation}
-```
+return `# ${title}
+## ${description}
+## ${motivation}
+## ${future}
+`
 }
 
 // TODO: Create a function to write README file

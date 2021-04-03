@@ -1,4 +1,4 @@
-ReadMe Generator
-Pending.
-This application generates a readme file.
-School homework assignment.
+# ReadMe Generator
+## Generates a readme file.
+## School project.
+## Not sure yet.
