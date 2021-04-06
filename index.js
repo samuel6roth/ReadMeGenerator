@@ -35,13 +35,18 @@ const questions = [
 ]
 
 
-const generator = ({ title, description, motivation, install, license }) => {
+const generator = ({ title, description, install, motivation, license }) => {
 return `# ${title}
 ## Description
 #### ${description}
+## Table of Contents
+* [Installation] (#install)
+* [Motivation] (#install)
+* [License] (#license)
 ## Installation
 #### ${install}
-## ${motivation}
+## Motivation
+#### ${motivation}
 ## License
 #### ${license}
 `
