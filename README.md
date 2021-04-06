@@ -1,7 +1,7 @@
 
 # Readme Generator
   
-![badge](https://img.shields.io/badge/license-MIT License-brightgreen)
+![GitHub](https://img.shields.io/github/license/samuel6roth/ReadMeGenerator?color=blue)
 ## Description
 Generates a readme file for the user based on their selected and inputed information.
 ## Table of Contents
@@ -12,7 +12,7 @@ Generates a readme file for the user based on their selected and inputed informa
 ## Installation
 Run npm install in the terminal command line.
 ## License
-![badge](https://img.shields.io/badge/license-MIT License-brightgreen)
+![GitHub](https://img.shields.io/github/license/samuel6roth/ReadMeGenerator?color=blue)
 - This program used the MIT License license. 
 ## Contributers
 Samuel Roth
