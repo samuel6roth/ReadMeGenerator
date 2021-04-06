@@ -20,66 +20,37 @@ const questions = [
         message: 'What was your motitvation?',
         name: 'motivation'
     },
-    // {
-    //     type: 'input',
-    //     message: 'Why did you build this project?',
-    //     name: 'project'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What problem does this project solve?',
-    //     name: 'problem'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What did you learn when creating this project?',
-    //     name: 'learn'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What makes your project stand out?',
-    //     name: 'standout'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What challenges did you face when creating this project?',
-    //     name: 'challenges'
-    // },
     {
         type: 'input',
-        message: 'What features do you plan to implement in the future?',
-        name: 'future'
+        message: 'What are required steps to install your project?',
+        name: 'install'
+    },
+    {
+        type: 'list',
+        message: 'Please choose a license for you project.',
+        choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+        name: 'license'
     },
     
 ]
 
 
-const generator = ({ title, future, description, motivation }) => {
+const generator = ({ title, description, motivation, install, license }) => {
 return `# ${title}
-## ${description}
+## Description
+#### ${description}
+## Installation
+#### ${install}
 ## ${motivation}
-## ${future}
+## License
+#### ${license}
 `
 }
 
-// TODO: Create a function to write README file
-//function writeToFile(fileName, data) {}
+
 inquirer.prompt(questions)
     .then((response) => {
     const readMe = generator(response)
     fs.writeFile('README.md', readMe, (err) =>
     err ? console.error(err) : console.log('Prompts written!'))
 });
-
-
-
-
-
-
-
-
-// TODO: Create a function to initialize app
-//function init() {}
-
-// Function call to initialize app
-//init();

@@ -1,4 +1,8 @@
 # ReadMe Generator
-## Generates a readme file.
-## School project.
-## Not sure yet.
+## Description
+#### Generates a readme file based on user criteria.
+## Installation
+#### Run npm install
+## School.
+## License
+#### MIT License
