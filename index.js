@@ -1,61 +1,66 @@
-// TODO: Include packages needed for this application
-const inquirer = require('inquirer');
-const fs = require('fs');
+const fs = require("fs");
+const util = require("util");
+const inquirer = require("inquirer");
+const generateReadme = require("./Assets/genreadme")
+const writeFileAsync = util.promisify(fs.writeFile);
+
+function questions(){
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "project",
+            message: "What is the name of your project?",
+        },
+        {
+            type: "input",
+            name: "description",
+            message: "Please describe your project: "
+        },
+        {
+            type: "input",
+            name: "installation",
+            message: "What are the required steps to install your project?",
+        },
+        {
+            type: "list",
+            name: "license",
+            message: "Please choose a license for your project.",
+            choices: [
+                "Apache License 2.0",
+                "Mozilla Public License 2.0",
+                "GNU LGPLv3",
+                "MIT License",
+                "The Unlicense"
+            ]
+        },
+        {
+            type: "input",
+            name: "contributers",
+            message: "Who contributed to this project?"
+        },
+        {
+            type: "input",
+            name: "username",
+            message: "Please provide your GitHub username."
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Please provide your email. "
+        }
+    ]);
+} 
 
 
-// TODO: Create an array of questions for user input
-const questions = [
-    {
-        type: 'input',
-        message: 'What is the title of your project?',
-        name: 'title'
-    },
-    {
-        type: 'input',
-        message: 'Please describe your project.',
-        name: 'description'
-    },
-    {
-        type: 'input',
-        message: 'What was your motitvation?',
-        name: 'motivation'
-    },
-    {
-        type: 'input',
-        message: 'What are required steps to install your project?',
-        name: 'install'
-    },
-    {
-        type: 'list',
-        message: 'Please choose a license for you project.',
-        choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
-        name: 'license'
-    },
-    
-]
-
-
-const generator = ({ title, description, install, motivation, license }) => {
-return `# ${title}
-## Description
-#### ${description}
-## Table of Contents
-* [Installation] (#install)
-* [Motivation] (#install)
-* [License] (#license)
-## Installation
-#### ${install}
-## Motivation
-#### ${motivation}
-## License
-#### ${license}
-`
-}
-
-
-inquirer.prompt(questions)
-    .then((response) => {
-    const readMe = generator(response)
-    fs.writeFile('README.md', readMe, (err) =>
-    err ? console.error(err) : console.log('Prompts written!'))
-});
+  async function init() {
+    try {
+        const input = await questions();
+        const userData = generateReadme(input);
+        await writeFileAsync('README.md', userData);
+        console.log('README.md file generated.');
+    }   catch(err) {
+        console.log(err);
+    }
+  }
+  
+  init();
