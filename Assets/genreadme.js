@@ -2,7 +2,7 @@ function generateReadme(input) {
     return `
 # ${input.project}
   
-![badge](https://img.shields.io/badge/license-${input.license}-brightgreen)
+![GitHub](https://img.shields.io/github/license/samuel6roth/ReadMeGenerator?color=blue)
 ## Description
 ${input.description}
 ## Table of Contents
@@ -13,7 +13,7 @@ ${input.description}
 ## Installation
 ${input.installation}
 ## License
-![badge](https://img.shields.io/badge/license-${input.license}-brightgreen)
+![GitHub](https://img.shields.io/github/license/samuel6roth/ReadMeGenerator?color=blue)
 - This program used the ${input.license} license. 
 ## Contributers
 ${input.contributers}

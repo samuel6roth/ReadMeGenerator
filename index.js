@@ -29,7 +29,7 @@ function questions(){
                 "Apache License 2.0",
                 "Mozilla Public License 2.0",
                 "GNU LGPLv3",
-                "MIT License",
+                "MIT",
                 "The Unlicense"
             ]
         },
